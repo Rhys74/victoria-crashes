@@ -22,43 +22,50 @@ var layer = {
     'circle-color': {
 
       // Name of property to drive style from
-      property: 'FATALITY',
+      property: 'LIGHT_CONDITION',
 
       // Type of styling. Can be 'exponential', 'interval', or 'categorical'
-      type: 'interval',
+      type: 'categorical',
 
       // Change colors based on values. 0 is blue, and 1 is red.
       // See http://www.colourlovers.com/palettes for some colour suggestions
       stops: [
-        [0, '#4E89ED'],
-        [1, '#FF5E7C'],
-      ]
+        ['Dark Street lights on', '#4E89ED'],
+        ['Dark Street lights off', '#FF5E7C'],
+        ['Dark No street lights', '#FF5E7C'],
+      ],
+
+      default: '#4E89ED',
 
     // Properties are separated by commas
     },
 
     // All circle paint properties are defined similarly
     'circle-opacity': {
-      property: 'FATALITY',
-      type: 'interval',
+      property: 'LIGHT_CONDITION',
+      type: 'categorical',
       stops: [
-        [0, 0.25],
-        [1, 0.75],
-      ]
+        ['Dark Street lights on', 0.25],
+        ['Dark Street lights off', 0.75],
+        ['Dark No street lights', 0.75],
+      ],
+      default: 0.25,
     },
 
     'circle-radius': {
-      property: 'FATALITY',
-      type: 'exponential',
+      property: 'LIGHT_CONDITION',
+      type: 'categorical',
       stops: [
-        [0, 1.5],
-        [9, 15],
-      ]
+        ['Dark Street lights on', 1.5],
+        ['Dark Street lights off', 15],
+        ['Dark No street lights', 15],
+      ],
+      default: 1.5,
     },
 
     // Properties can also just be a number or value
     'circle-stroke-width': 0.25,
     'circle-stroke-opacity': 0.2,
     'circle-stroke-color': '#000000',
-  }
+  },
 };
